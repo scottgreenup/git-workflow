@@ -1,15 +1,8 @@
 # The Humblebee Git Work Flow
-
-  1. Update your local copy of the remote
-  ```
-  git fetch --all
-  ```
-
-t Work Flow              
 ## 1. Pull down a remote you want to work with.
  
-  You can use HTTPS
- ```
+You can use HTTPS
+```
  git clone https://github.com/torvalds/linux.git
  ```
  or you can use SSH
@@ -46,7 +39,7 @@ git checkout -b "sgre-my-feature"
 ```
 I use `sgre` as the start of branch names as my name is Scott Greenup. I'd recommend it to more easily find your branches.Or use the standard with the git remote you are working with.
 
-### 5. Work, Add, Commit, [Push], Repeat
+## 5. Work, Add, Commit, [Push], Repeat
 You are now in your own branch!
  1. Edit some files or do some work
  2. Add the files to git for staging
@@ -70,24 +63,30 @@ You are now in your own branch!
  ```
  5. Go back to 1.
 
-### 6. You have finished your feature and want to merge
+## 6. You have finished your feature and want to merge
 If you follow these steps, you'll be safe. Some of these steps are uneccessary, they are explained in the step.
  1. Update your local copy to match the remote
+
  ```
  git fetch --all
  ```
+
  2. Fast-forward the branch you branched from to the origin version.
+
  ```
  git checkout "parent-branch-that-you-branched-from"
  git merge --ff-only "origin/parent-branch-that-you-branched-from"
  git checkout "your-working-branch"
  ```
+
  For our example from before:
+
  ```
  git checkout "master"
  git merge --ff-only "origin/master"
  git checkout "sgre-my-feature"
  ```
+
  Note: You may not have to fast forward if origin/parent-branch and parent-branch are the same commit, which would also
  mean you don't have to rebase.
  3. Time to rebase our branch.
